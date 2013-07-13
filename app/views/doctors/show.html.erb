@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @doctor.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @doctor.email %>
+</p>
+
+<p>
+  <b>Phone number:</b>
+  <%= @doctor.phone_number %>
+</p>
+
+<p>
+  <b>Healthcare provider:</b>
+  <%= @doctor.healthcare_provider %>
+</p>
+
+<p>
+  <b>Patient sign-up link:</b>
+  <%= link_to 'Send this link to your patients', new_doctor_patient_path(@doctor.id) %>
+</p>

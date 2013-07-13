@@ -1,4 +1,14 @@
 Mldb::Application.routes.draw do
+  get 'signup', to: 'doctors#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+
+
+  resources :sessions
+  resources :doctors do
+    resources :patients, controller: 'doctors/patients'
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +58,7 @@ Mldb::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'static#index'
 
   # See how all your routes lay out with "rake routes"
 
