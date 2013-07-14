@@ -8,7 +8,7 @@ class Doctors::PatientsController < ApplicationController
   end
 
   def index
-    @patients = Patient.all
+    @patients = Patient.where(doctor_id: @doctor.id)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -3,10 +3,12 @@ Mldb::Application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
-
   resources :sessions
+
   resources :doctors do
-    resources :patients, controller: 'doctors/patients'
+    resources :patients, controller: 'doctors/patients' do
+      resources :readings, controller: 'doctors/patients/readings'
+    end
   end
 
   # The priority is based upon order of creation:

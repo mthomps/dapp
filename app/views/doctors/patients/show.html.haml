@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %b Name:
+  = @patient.name
+%p
+  %b Email:
+  = @patient.email
+%p
+  %b Phone number:
+  = @patient.phone_number
+%p
+  %b Age:
+  = @patient.age
+
+%yo
+  = link_to 'Readings', doctor_patient_readings_path(@doctor.id, @patient.id)

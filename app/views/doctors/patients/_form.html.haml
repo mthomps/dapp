@@ -25,5 +25,11 @@
   .field
     = f.label :age
     = f.text_field :age
+
+  / = f.fields_for :time_settings do |builder|
+  /   %fieldset
+  /     = builder.label :content, "time"
+  /     = builder.time_field, :content
+
   .actions
     = f.submit
