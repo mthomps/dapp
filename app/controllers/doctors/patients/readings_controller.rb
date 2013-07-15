@@ -7,7 +7,6 @@ class Doctors::Patients::ReadingsController < ApplicationController
   end
 
   def index
-    debugger
     @readings = Reading.where(patient_id: @patient.id)
 
     respond_to do |format|
@@ -40,12 +39,25 @@ class Doctors::Patients::ReadingsController < ApplicationController
   # end
 
   def create
-    debugger
-    @reading = Reading.new(params[:reading])
+    if params[:reading].present?
+      reading_attrs = params[:reading]
+    else
+      reading_attrs =
+      {
+        blood_glucose: params[:blood_glucose],
+        insulin: params[:insulin],
+        exercised: params[:exercised] == '1',
+        notes: params[:notes],
+        carbs: params[:carbs],
+        patient_id: params[:patient_id]
+      }
+    end
+
+    @reading = Reading.new(reading_attrs)
     @reading.patient = @patient
     respond_to do |format|
       if @reading.save
-        format.html { redirect_to doctor_patients_path, notice: 'Reading was successfully created.' }
+        format.html { redirect_to doctor_patient_readings_path, notice: 'Reading was successfully created.' }
         format.json { render json: @patient, status: :created, location: @patient }
       else
         format.html { render action: "new" }

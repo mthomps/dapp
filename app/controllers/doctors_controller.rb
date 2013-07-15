@@ -42,7 +42,7 @@ class DoctorsController < ApplicationController
 def create
   @doctor = Doctor.new(params[:doctor])
   if @doctor.save
-    session[:user_id] = @doctor.id
+    session[:email] = @doctor.email
     flash.now[:notice] = "Thank you for signing up!"
     redirect_to root_url
   else

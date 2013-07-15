@@ -1,0 +1,30 @@
+
+.left
+  %h1 Patients
+  .table-container
+    %table
+      - @patients.each do |patient|
+        %tr
+          %td=image_tag 'person.png'
+          %td=link_to "#{patient.name}, #{patient.age}", doctor_patient_readings_path(@doctor.id, patient.id)
+          %td.divider
+          %td=image_tag '7dayavg.png'
+          %td 7 Day Average BG
+          %td #{patient.week_avg_bg}
+          %td.divider
+          %td=image_tag 'monthavg.png'
+          %td Month Average BG
+          %td #{patient.month_avg_bg}
+.right
+  = link_to 'New Patient', new_doctor_patient_path, class: 'auth-btn add-patient'
+  .right-divider
+
+  .sorting
+    %h2 Sort
+    .sorting-buttons
+      .auth-btn Last Name
+      .auth-btn 7 day avg
+      .auth-btn month avg
+
+%br/
+

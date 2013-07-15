@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20130713223732) do
     t.string   "settings"
     t.integer  "age"
     t.integer  "doctor_id"
+    t.string   "insulin_time"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
@@ -58,7 +59,7 @@ ActiveRecord::Schema.define(:version => 20130713223732) do
   add_index "readings", ["patient_id"], :name => "index_readings_on_patient_id"
 
   create_table "time_settings", :force => true do |t|
-    t.integer  "time"
+    t.string   "time"
     t.string   "value"
     t.string   "category"
     t.integer  "patient_id"

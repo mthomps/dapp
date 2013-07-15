@@ -1,3 +1,53 @@
 // Place all the styles related to the Patients controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.table-icon {
+  padding: 15px;
+}
+
+.table-container {
+  margin: 30px;
+  width: 700px;
+}
+
+.left {
+  width: 780px;
+  position: relative;
+  float: left;
+  border: 1px solid #cecece;
+  border-top: none;
+  height: 100%;
+
+  h1 {
+    margin: 30px;
+  }
+}
+
+.right {
+  float: right;
+  position: relative;
+  width: 278px;
+  padding: 30px;
+  background-color: #fdfdfd;
+}
+
+.add-patient {
+  margin: 30px auto;
+  width: 110px;
+}
+
+.sorting {
+  h2 {
+    text-align: center;
+    margin: 30px
+  }
+
+  .auth-btn {
+    display: inline-block;
+    width: 86px;
+    padding: 10px 0px;
+    height: 15px;
+    line-height: 15px;
+  }
+}

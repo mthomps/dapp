@@ -1,0 +1,81 @@
+// Place all the styles related to the Doctors controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$border-color: #cecece;
+.wrapper {
+  width: 1120px;
+  margin: 0 auto;
+  background-color: white;
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  background-color: #eeeeee;
+}
+
+input {
+  height: 40px;
+  padding: 0 15px;
+  border-radius: 4px;
+  background: #eeeeee;
+  font-size: 14px;
+}
+
+.fields {
+  text-align: center;
+}
+
+h1, h2 {
+  padding: 30px;
+}
+
+table {
+  border-spacing: 0;
+  width: 700px;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 7px;
+  &.stat{
+    color: #dd4c4c;
+  }
+  &.note:hover{
+    cursor: pointer;
+  }
+}
+
+tr {
+  background: #eeeeee;
+  border: 3px solid white;
+  height: 50px;
+}
+
+td.divider {
+  background: url('unitdiv.png') center center no-repeat;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+  color: #181817;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #181817;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #181817;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: #181817;
+}
+
+.flash-zone {
+  text-align: center;
+  color: red;
+}

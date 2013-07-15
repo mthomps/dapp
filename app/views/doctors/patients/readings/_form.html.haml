@@ -7,9 +7,9 @@
       %ul
         - @reading.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.label :read_time
-    = f.datetime_select :read_time
+  / .field
+  /   = f.label :read_time
+  /   = f.datetime_select :read_time
   .field
     = f.label :blood_glucose
     = f.text_field :blood_glucose
@@ -22,9 +22,8 @@
   .field
     = f.label :exercised
     = f.check_box :exercised
-  .field
-    = f.label :notes
-    = f.text_area :notes
-
+  / .field
+  /   = f.label :notes
+  /   = f.text_area :notes
   .actions
     = f.submit

@@ -1,3 +1,20 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.auth-btn {
+  background: white;
+  border: 2px solid #dd4c4c;
+  color: #dd4c4c;
+  display: block;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 15px;
+  border-radius: 4px;
+  width: 100px;
+  margin: 0 auto;
+  &:hover {
+    cursor: pointer;
+    color: #dd4c4c;
+  }
+}

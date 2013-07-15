@@ -10,6 +10,7 @@ class CreatePatients < ActiveRecord::Migration
       t.string :settings
       t.integer :age
       t.integer :doctor_id
+      t.string :insulin_time
       t.timestamps
     end
     add_index(:patients, :doctor_id)

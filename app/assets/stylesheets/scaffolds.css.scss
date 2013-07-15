@@ -1,14 +1,11 @@
 body {
-  background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 18px;
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 18px;
 }
 
@@ -20,13 +17,6 @@ pre {
 
 a {
   color: #000;
-  &:visited {
-    color: #666;
-  }
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
 }
 
 div {
@@ -67,3 +57,20 @@ div {
     list-style: square;
   }
 }
+
+@font-face {
+  font-family: "Proxima";
+  src: font-url("ProximaNova-Reg.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "ProximaBold";
+  src: font-url('ProximaNova-Bold.eot');
+  src: font-url('ProximaNova-Bold.woff') format('woff'),
+       font-url('ProximaNova-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+

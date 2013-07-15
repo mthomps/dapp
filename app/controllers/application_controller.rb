@@ -2,7 +2,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   def current_user
-    @current_user ||= Doctor.find(session[:user_id]) if session[:user_id]
+    return @current_user if @current_user.present?
+    user = Doctor.find_by_email(session[:email])
+    user = Patient.find_by_email(session[:email]) unless user
+    @current_user = user
   end
   helper_method :current_user
 

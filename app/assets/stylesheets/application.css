@@ -11,3 +11,27 @@
  *= require_self
  *= require_tree .
  */
+
+h1, h2, h3, h4, h5, h6, a, .is-heading-font {
+  font-family: "ProximaBold", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+}
+
+body, p, .is-body-font {
+  font-family: "Proxima", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+a:hover {
+  text-decoration:none;
+  color: #4a4a49;
+}

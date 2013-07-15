@@ -1,7 +1,7 @@
 class CreateTimeSettings < ActiveRecord::Migration
   def change
     create_table :time_settings do |t|
-      t.integer :time
+      t.string :time
       t.string :value
       t.string :category
       t.integer :patient_id

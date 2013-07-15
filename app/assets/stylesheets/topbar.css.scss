@@ -1,0 +1,29 @@
+// Place all the styles related to the Doctors controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$border-color: #cecece;
+$bar-height: 60px;
+
+.top-bar {
+  height: $bar-height;
+  border-bottom: 1px solid $border-color;
+  background: white;
+  .wrapper {
+    padding: 0px;
+  }
+  .logo {
+    display: inline-block;
+    padding: 17px 0;
+  }
+  .auth_area {
+    display: inline-block;
+    float: right;
+    vertical-align: middle;
+    line-height: $bar-height;
+  }
+  .auth_item {
+    padding: 0 20px;
+    text-transform: uppercase;
+    display: inline-block;
+  }
+}

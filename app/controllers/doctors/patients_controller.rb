@@ -20,18 +20,14 @@ class Doctors::PatientsController < ApplicationController
   # GET /patients/1.json
   def show
     @patient = Patient.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @patient }
-    end
+    redirect_to doctor_patient_readings_path(@doctor.id, @patient.id)
   end
 
   # GET /patients/new
   # GET /patients/new.json
   def new
     @patient = Patient.new
-
+    @patient.time_settings.new
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @patient }

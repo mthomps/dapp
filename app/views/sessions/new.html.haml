@@ -1,0 +1,14 @@
+%h2 Welcome back!
+%h4 Sign in to view your account.
+.flash-zone
+  - if flash[:error]
+    %p.error= h flash[:error]
+  - if flash[:notice]
+    %p.notice= h flash[:notice]
+= form_tag sessions_path do
+  .fields
+    .field
+      = text_field_tag :email, params[:email], placeholder: 'Email'
+    .field
+      = password_field_tag :password, placeholder: 'Password'
+    .actions= submit_tag "Log In", class: 'auth-btn'

@@ -1,0 +1,48 @@
+.left
+  %h1 Readings
+  .table-container
+    %table
+      - @readings.each do |reading|
+        %tr
+          %td= reading.created_at.strftime("%l:%M %p")
+          %td=image_tag 'bgico.png'
+          %td Blood Glucose
+          %td.stat= reading.blood_glucose
+          %td=image_tag 'food.png'
+          %td Carbs
+          %td.stat= "#{reading.carbs}g"
+          %td=image_tag 'pill.png'
+          %td Insulin
+          %td.stat= "#{reading.insulin} U"
+          - if reading.exercised
+            %td=image_tag 'exercise.png'
+          - else
+            %td=image_tag 'exercisefalse.png'
+          / %td.note=image_tag 'note.png'
+          / <td><haml:loud> link_to 'Show', doctor_patient_reading_path(@doctor.id, @patient.id, reading.id) </haml:loud></td>
+          /
+            <td><haml:loud> link_to 'Edit', edit_doctor_patient_reading_path(@doctor.id, @patient.id, reading.id) </haml:loud></td>
+            <td><haml:loud> link_to 'Destroy', doctor_patient_reading_path(@doctor.id, @patient.id, reading.id), method: :delete, data: { confirm: 'Are you sure?' } </haml:loud></td>
+%br/
+.right
+  .avatar
+    =image_tag 'avatar.png'
+  .info
+    - if current_user.present?
+      - if current_user.is_doctor? and @patient.present?
+        -target_user = @patient
+      - elsif !current_user.is_doctor? and @doctor.present?
+        -target_user = @doctor
+    - if target_user.present?
+      =target_user.name
+      .horiz-divider
+      %br
+      =image_tag 'email.png'
+      =mail_to target_user.email
+      %br
+      =image_tag 'phone.png'
+      =target_user.phone_number
+      .horiz-divider
+      %h2.insulin_settings insulin settings
+      =image_tag 'insulin_settings.png'
+

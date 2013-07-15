@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title Mldb
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .top-bar
+      .wrapper
+        .logo
+          = link_to image_tag('logo.png'), root_path
+        .auth_area
+          - if current_user.present? and @doctor.present? and @patient.present? and !current_user.is_doctor?
+            .auth_item
+              =link_to "Add reading", new_doctor_patient_reading_path(@doctor.id, @patient.id)
+          - if current_user.present?
+            .auth_item #{current_user.name}
+            \#{link_to "Log out", logout_path, class: 'auth_item'}
+            / - if current_user.is_doctor?
+            /   = link_to "Patients", doctor_patients_path(current_user.id)
+          - else
+            \#{link_to "Log in", login_path, class: 'auth_item'}
+            = link_to "Sign Up", signup_path, class: 'auth_item'
+
+    .wrapper
+      = yield
