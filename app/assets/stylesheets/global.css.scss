@@ -17,6 +17,7 @@ body {
   height: 100%;
   margin: 0;
   background-color: #eeeeee;
+  text-align: center;
 }
 
 input {
@@ -25,6 +26,11 @@ input {
   border-radius: 4px;
   background: #eeeeee;
   font-size: 14px;
+  margin: 3px;
+}
+
+.standard-padding {
+  padding: 30px;
 }
 
 .fields {

@@ -1,0 +1,23 @@
+= form_for(@doctor) do |f|
+  - if @doctor.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@doctor.errors.count, "error")
+        prohibited this doctor from being saved:
+      %ul
+        - @doctor.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.text_field :name, placeholder: 'Name'
+  .field
+    = f.text_field :phone_number, placeholder: 'Phone Number'
+  .field
+    = f.text_field :email, placeholder: 'Email'
+  .field
+    = f.password_field :password, placeholder: 'Password'
+  .field
+    = f.password_field :password_confirmation, placeholder: 'Password Confirmation'
+  .field
+    = f.text_field :healthcare_provider, placeholder: 'Health Care Provider'
+  .actions
+    = f.submit 'Sign Up'
