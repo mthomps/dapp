@@ -7,7 +7,7 @@ class Doctors::Patients::ReadingsController < ApplicationController
   end
 
   def index
-    @readings = Reading.where(patient_id: @patient.id)
+    @readings = Reading.where(patient_id: @patient.id).order('created_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb

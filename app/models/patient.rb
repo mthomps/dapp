@@ -3,7 +3,7 @@ class Patient < ActiveRecord::Base
 
   attr_accessible :carb_ratio, :email, :name, :password,
    :password_confirmation, :phone_number, :age,
-   :time_settings_attributes, :readings,
+   :time_settings_attributes, :readings, :doctor_id,
    :insulin_time
 
   belongs_to :doctor
@@ -40,5 +40,4 @@ class Patient < ActiveRecord::Base
     return 'N/A' if readings.size == 0
     total_bg / readings.size
   end
-
 end
