@@ -30,8 +30,9 @@ div {
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
-  display: table;
+  border: 3px solid red;
+  width: 300px;
+  margin: 0 auto;
 }
 
 #error_explanation {
@@ -39,7 +40,7 @@ div {
   border: 2px solid red;
   padding: 7px;
   padding-bottom: 0;
-  margin-bottom: 20px;
+  margin: 15px auto;
   background-color: #f0f0f0;
   h2 {
     text-align: left;

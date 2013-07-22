@@ -47,6 +47,15 @@ table {
   border-collapse: collapse;
 }
 
+.horiz-divider {
+  width: 280px;
+  height: 1px;
+  background: #cecece;
+  text-align: center;
+  display: inline-block;
+  margin: 15px;
+}
+
 td {
   padding: 7px;
   &.stat{

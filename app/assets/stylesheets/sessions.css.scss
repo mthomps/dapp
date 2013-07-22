@@ -9,21 +9,21 @@
   display: block;
   text-transform: uppercase;
   text-align: center;
-  padding: 15px;
   border-radius: 4px;
   width: 100px;
   margin: 0 auto;
   &:hover {
     cursor: pointer;
-    color: #dd4c4c;
+    color: darken(#dd4c4c, 20%);
   }
 }
 
-.auth-header {
+.light-header {
   font-weight: 300;
   font-size: 40px;
 }
 
-.auth-subheader {
+.subheader {
   font-weight: 600;
+  padding-bottom: 15px;
 }

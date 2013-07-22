@@ -1,14 +1,14 @@
 class DoctorsController < ApplicationController
   # GET /doctors
   # GET /doctors.json
-  def index
-    @doctors = Doctor.all
+  # def index
+  #   @doctors = Doctor.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @doctors }
-    end
-  end
+  #   respond_to do |format|
+  #     format.html # index.html.erb
+  #     format.json { render json: @doctors }
+  #   end
+  # end
 
   # GET /doctors/1
   # GET /doctors/1.json

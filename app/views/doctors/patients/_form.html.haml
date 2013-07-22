@@ -8,38 +8,37 @@
         - @patient.errors.full_messages.each do |msg|
           %li= msg
   .field
-    = f.label :name
-    = f.text_field :name
+    = f.text_field :name, placeholder: 'Name'
   .field
-    = f.label :email
-    = f.text_field :email
+    = f.text_field :phone_number, placeholder: 'Phone Number'
   .field
-    = f.label :password
-    = f.text_field :password
+    = f.text_field :age, placeholder: 'Age'
   .field
-    = f.label :password_confirmation
-    = f.text_field :password_confirmation
+    = f.text_field :email, placeholder: 'Email'
   .field
-    = f.label :phone_number
-    = f.text_field :phone_number
+    = f.password_field :password, placeholder: 'Password'
   .field
-    = f.label :age
-    = f.text_field :age
-  Additional Settings
-  .field
-    = f.label :insulin_time
-    = f.text_field :insulin_time
+    = f.password_field :password_confirmation, placeholder: 'Password Confirmation'
 
+  .horiz-divider
   %br
-  %table
-    %tr
-      %td Category
-      %td Time
-      %td Value
-  = f.fields_for :time_settings do |builder|
-    = render 'time_settings_fields', f: builder
-  %br
-  = link_to_add_field 'Add new setting', f, :time_settings
+
+  .subheader Add your insulin pump settings.
+
+  .field
+    = f.text_field :insulin_time, placeholder: 'Active Insulin Time'
+
+  / %br
+  / %table
+  /   %tr
+  /     %td Category
+  /     %td Time
+  /     %td Value
+  / = f.fields_for :time_settings do |builder|
+  /   = render 'time_settings_fields', f: builder
+  / %br
+  / = link_to_add_field 'Add new setting', f, :time_settings
 
   .actions
-    = f.submit
+    = f.submit 'Sign Up', class: 'auth-btn'
+  .clear

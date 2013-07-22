@@ -11,7 +11,7 @@ class Patient < ActiveRecord::Base
   has_many :readings
   accepts_nested_attributes_for :time_settings
 
-  #TODO: Combine with doctor into User model
+  #TODO: Combine with doctor into User model?
   include ActiveModel::Validations
   include User
   validates_with UserValidator
@@ -25,7 +25,7 @@ class Patient < ActiveRecord::Base
         total_bg = total_bg + r.blood_glucose
       end
     end
-    return 0 if readings.size == 0
+    return 'N/A' if readings.size == 0
     total_bg / readings.size
   end
 
@@ -37,20 +37,8 @@ class Patient < ActiveRecord::Base
         total_bg = total_bg + r.blood_glucose
       end
     end
-    return 0 if readings.size == 0
+    return 'N/A' if readings.size == 0
     total_bg / readings.size
   end
 
-  # def settings_array
-  #   results = {}
-  #   time_settings.each do |ts|
-  #     if results[ts.category].present?
-  #       results[ts.category] << {ts.time : ts.value}
-  #     else
-  #       results[ts.category] = []
-  #       results[ts.category] << {ts.time : ts.value}
-  #     end
-  #   results
-  #   end
-  # end
 end

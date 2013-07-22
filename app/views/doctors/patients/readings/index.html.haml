@@ -23,7 +23,6 @@
           /
             <td><haml:loud> link_to 'Edit', edit_doctor_patient_reading_path(@doctor.id, @patient.id, reading.id) </haml:loud></td>
             <td><haml:loud> link_to 'Destroy', doctor_patient_reading_path(@doctor.id, @patient.id, reading.id), method: :delete, data: { confirm: 'Are you sure?' } </haml:loud></td>
-%br/
 .right
   .avatar
     =image_tag 'avatar.png'

@@ -11,19 +11,16 @@
   /   = f.label :read_time
   /   = f.datetime_select :read_time
   .field
-    = f.label :blood_glucose
-    = f.text_field :blood_glucose
+    = f.text_field :blood_glucose, placeholder: 'Blood Glucose'
   .field
-    = f.label :carbs
-    = f.text_field :carbs
+    = f.text_field :carbs, placeholder: 'Carbs'
   .field
-    = f.label :insulin
-    = f.text_field :insulin
+    = f.text_field :insulin, placeholder: 'Insulin'
   .field
-    = f.label :exercised
-    = f.check_box :exercised
+    = f.label :exercised, 'Exercised?'
+    = f.check_box :exercised, class: 'checkbox'
   / .field
   /   = f.label :notes
   /   = f.text_area :notes
   .actions
-    = f.submit
+    = f.submit 'Submit'
