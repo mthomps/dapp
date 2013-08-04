@@ -82,7 +82,7 @@ start = Time.now
 70.times do |i|
   bg = rand(300) + 80
   carbs = rand (200) + 100
-  insulin = rand(4)
+  insulin = rand(4) + 1
   exersised = rand(2) == 1
   pat_id = rand(6) + 1
   start = start - 3.hours + 27.minutes

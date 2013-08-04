@@ -10,11 +10,11 @@
           %td.divider
           %td=image_tag '7dayavg.png'
           %td 7 Day Average BG
-          %td #{patient.week_avg_bg}
+          %td= if patient.weekly_avg_bg < 0 then 'N/A' else patient.weekly_avg_bg end
           %td.divider
           %td=image_tag 'monthavg.png'
           %td Month Average BG
-          %td #{patient.month_avg_bg}
+          %td= if patient.monthly_avg_bg < 0 then 'N/A' else patient.monthly_avg_bg end
 .right
   = link_to 'New Patient', new_doctor_patient_path, class: 'auth-btn add-patient'
   .right-divider
@@ -22,9 +22,9 @@
   .sorting
     %h2 Sort
     .sorting-buttons
-      .auth-btn Last Name
-      .auth-btn 7 day avg
-      .auth-btn month avg
+      = link_to 'Last Name', doctor_patients_path(@doctor.id, sort_by: 'last_name'), class: 'auth-btn'
+      = link_to '7-day Avg', doctor_patients_path(@doctor.id, sort_by: 'weekly_average'), class: 'auth-btn'
+      = link_to 'Month Avg', doctor_patients_path(@doctor.id, sort_by: 'monthly_average'), class: 'auth-btn'
 
 %br/
 

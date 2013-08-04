@@ -17,7 +17,7 @@ class Patient < ActiveRecord::Base
   validates_with UserValidator
   validates_presence_of :doctor
 
-  def week_avg_bg
+  def weekly_avg_bg
     readings = Reading.where(created_at: [Time.now - 1.week...Time.now], patient_id: id)
     total_bg = 0
     readings.each do |r|
@@ -25,11 +25,11 @@ class Patient < ActiveRecord::Base
         total_bg = total_bg + r.blood_glucose
       end
     end
-    return 'N/A' if readings.size == 0
+    return -1 if readings.size == 0
     total_bg / readings.size
   end
 
-  def month_avg_bg
+  def monthly_avg_bg
     readings = Reading.where(created_at: [Time.now - 1.month...Time.now], patient_id: id)
     total_bg = 0
     readings.each do |r|
@@ -37,7 +37,7 @@ class Patient < ActiveRecord::Base
         total_bg = total_bg + r.blood_glucose
       end
     end
-    return 'N/A' if readings.size == 0
+    return -1 if readings.size == 0
     total_bg / readings.size
   end
 end

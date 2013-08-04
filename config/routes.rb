@@ -5,7 +5,7 @@ Mldb::Application.routes.draw do
 
   resources :sessions
 
-  resources :doctors do
+  resources :doctors, except: [:index] do
     resources :patients, controller: 'doctors/patients' do
       resources :readings, controller: 'doctors/patients/readings'
     end

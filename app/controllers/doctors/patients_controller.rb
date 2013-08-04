@@ -10,6 +10,26 @@ class Doctors::PatientsController < ApplicationController
   def index
     @patients = Patient.where(doctor_id: @doctor.id)
 
+    if params[:sort_by].present?
+      case params[:sort_by]
+      when 'last_name'
+        @patients = @patients.all.sort do |p1, p2|
+          return 0 if p2.blank? or p1.blank?
+          p1.name.split(' ').last.downcase <=> p2.name.split(' ').last.downcase
+        end
+      when 'weekly_average'
+        @patients = @patients.all.sort do |p1, p2|
+          return 0 if p2.blank? or p1.blank?
+          p2.weekly_avg_bg <=> p1.weekly_avg_bg
+        end
+      when 'monthly_average'
+        @patients = @patients.all.sort do |p1, p2|
+          return 0 if p2.blank? or p1.blank?
+          p2.monthly_avg_bg <=> p1.monthly_avg_bg
+        end
+      end
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @patients }
