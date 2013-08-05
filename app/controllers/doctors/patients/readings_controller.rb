@@ -8,6 +8,7 @@ class Doctors::Patients::ReadingsController < ApplicationController
 
   def index
     @readings = Reading.where(patient_id: @patient.id).order('created_at DESC')
+    @chart_readings = @readings.where(created_at: [Time.now - 1.week..Time.now])
 
     respond_to do |format|
       format.html # index.html.erb

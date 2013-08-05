@@ -1,9 +1,12 @@
 .left
-  %h1 Readings
+  %h1 Blood Glucose
+  - if @chart_readings.present?
+    = content_tag :div, "", id: "readings_chart", data: {readings: @patient.readings_chart_data(@chart_readings)}
+
   .table-container
     %table
       - @readings.each do |reading|
-        %tr
+        %tr{class: "#{'at-risk' if reading.blood_glucose > Reading.at_risk_threshold}"}
           %td= reading.created_at.strftime("%b %e, %l:%M %p")
           %td=image_tag 'bgico.png'
           %td Blood Glucose

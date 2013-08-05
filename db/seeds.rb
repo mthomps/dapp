@@ -84,7 +84,7 @@ start = Time.now
   carbs = rand (200) + 100
   insulin = rand(4) + 1
   exersised = rand(2) == 1
-  pat_id = rand(6) + 1
+  pat_id = rand(6) + Patient.first.id
   start = start - 3.hours + 27.minutes
   read = Reading.create!({
     blood_glucose: bg,

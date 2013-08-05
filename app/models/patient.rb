@@ -40,4 +40,16 @@ class Patient < ActiveRecord::Base
     return -1 if readings.size == 0
     total_bg / readings.size
   end
+
+  def readings_chart_data(readings)
+    @chart_readings = Reading.where(patient_id: id, created_at: [Time.now - 1.week..Time.now]).order('created_at DESC')
+    # group the readings by same day?
+    # grouped_readings = readings.group_by { |r| r.created_at.strftime '%Y%m%d' }
+    result = readings.map do |r|
+      {
+        created_at: r.created_at.strftime("%Y-%m-%d %H:%M"),
+        blood_glucose: r.blood_glucose
+      }
+    end
+  end
 end
