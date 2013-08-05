@@ -4,7 +4,7 @@
   .table-container
     %table
       - @patients.each do |patient|
-        %tr
+        %tr{class: "#{'at-risk' if patient.weekly_avg_bg > Reading.at_risk_threshold}"}
           %td=image_tag 'person.png'
           %td=link_to "#{patient.name}, #{patient.age}", doctor_patient_readings_path(@doctor.id, patient.id)
           %td.divider
