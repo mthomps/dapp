@@ -40,19 +40,8 @@ class Doctors::Patients::ReadingsController < ApplicationController
   # end
 
   def create
-    if params[:reading].present?
-      reading_attrs = params[:reading]
-    else
-      reading_attrs =
-      {
-        blood_glucose: params[:blood_glucose],
-        insulin: params[:insulin],
-        exercised: params[:exercised] == '1',
-        notes: params[:notes],
-        carbs: params[:carbs],
-        patient_id: params[:patient_id]
-      }
-    end
+    reading_attrs = reading_params
+    reading_attrs[:exercised] = (reading_attrs[:exercised] == '1')
 
     @reading = Reading.new(reading_attrs)
     @reading.patient = @patient
@@ -89,5 +78,11 @@ class Doctors::Patients::ReadingsController < ApplicationController
       format.html { redirect_to doctors_patients_readings_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def reading_params
+    params[:reading].permit(:read_time, :blood_glucose, :carbs, :insulin, :exercised, :notes, :patient_id)
   end
 end

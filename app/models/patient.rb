@@ -1,11 +1,6 @@
 class Patient < ActiveRecord::Base
   has_secure_password
 
-  attr_accessible :carb_ratio, :email, :name, :password,
-   :password_confirmation, :phone_number, :age,
-   :time_settings_attributes, :readings, :doctor_id,
-   :insulin_time
-
   belongs_to :doctor
   has_many :time_settings
   has_many :readings

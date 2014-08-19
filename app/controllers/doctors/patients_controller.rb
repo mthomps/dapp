@@ -62,7 +62,7 @@ class Doctors::PatientsController < ApplicationController
   # POST /patients
   # POST /patients.json
   def create
-    @patient = Patient.new(params[:patient])
+    @patient = Patient.new(patient_params)
     @patient.doctor = @doctor
     respond_to do |format|
       if @patient.save
@@ -101,5 +101,12 @@ class Doctors::PatientsController < ApplicationController
       format.html { redirect_to patients_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def patient_params
+    params[:patient].permit(:carb_ratio, :email, :name, :password, :password_confirmation,
+      :phone_number, :age, :time_settings_attributes, :readings, :insulin_time)
   end
 end

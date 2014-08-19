@@ -40,7 +40,7 @@ class DoctorsController < ApplicationController
   # POST /doctors
   # POST /doctors.json
 def create
-  @doctor = Doctor.new(params[:doctor])
+  @doctor = Doctor.new(doctor_params)
   if @doctor.save
     session[:email] = @doctor.email
     flash.now[:notice] = "Thank you for signing up!"
@@ -76,5 +76,11 @@ end
       format.html { redirect_to doctors_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def doctor_params
+    params[:doctor].permit(:email, :healthcare_provider, :name, :password, :password_confirmation, :phone_number)
   end
 end
