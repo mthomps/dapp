@@ -9,12 +9,15 @@
 
 .left {
   width: 780px;
-  position: relative;
+  position: absolute;
+  top: 0;
+  bottom: 0;
   float: left;
+  min-height: 500px;
+  overflow: auto;
   border: 1px solid #cecece;
   border-top: none;
-  height: 100%;
-  overflow: auto;
+  background: white;
   h1 {
     margin: 30px;
   }

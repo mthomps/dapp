@@ -3,15 +3,10 @@ $border-color: #cecece;
   max-width: 1120px;
   margin: 0 auto;
   background-color: white;
-  height: 100%;
-}
-
-html {
-  height: 100%;
+  position: relative;
 }
 
 body {
-  height: 100%;
   margin: 0;
   background-color: #eeeeee;
   text-align: center;
