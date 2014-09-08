@@ -90,4 +90,10 @@ td.divider {
 .flash-zone {
   text-align: center;
   color: red;
+}}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
 }

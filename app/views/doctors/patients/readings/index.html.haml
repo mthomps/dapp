@@ -2,6 +2,8 @@
   %h1 Blood Glucose
   - if @chart_readings.present?
     = content_tag :div, "", id: "readings_chart", data: {readings: @patient.readings_chart_data(@chart_readings)}
+  - else
+    %p No Data
 
   .table-container
     %table
@@ -47,4 +49,4 @@
       .horiz-divider
       %h2.insulin_settings insulin settings
       =image_tag 'insulin_settings.png'
-
+.group

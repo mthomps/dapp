@@ -2,19 +2,22 @@
 .left
   %h1 Patients
   .table-container
-    %table
-      - @patients.each do |patient|
-        %tr{class: "#{'at-risk' if patient.weekly_avg_bg > Reading.at_risk_threshold}"}
-          %td=image_tag 'person.png'
-          %td=link_to "#{patient.name}, #{patient.age}", doctor_patient_readings_path(@doctor.id, patient.id)
-          %td.divider
-          %td=image_tag '7dayavg.png'
-          %td 7 Day Average BG
-          %td= if patient.weekly_avg_bg < 0 then 'N/A' else patient.weekly_avg_bg end
-          %td.divider
-          %td=image_tag 'monthavg.png'
-          %td Month Average BG
-          %td= if patient.monthly_avg_bg < 0 then 'N/A' else patient.monthly_avg_bg end
+    - if @patients.present?
+      %table
+        - @patients.each do |patient|
+          %tr{class: "#{'at-risk' if patient.weekly_avg_bg > Reading.at_risk_threshold}"}
+            %td=image_tag 'person.png'
+            %td=link_to "#{patient.name}, #{patient.age}", doctor_patient_readings_path(@doctor.id, patient.id)
+            %td.divider
+            %td=image_tag '7dayavg.png'
+            %td 7 Day Average BG
+            %td= if patient.weekly_avg_bg < 0 then 'N/A' else patient.weekly_avg_bg end
+            %td.divider
+            %td=image_tag 'monthavg.png'
+            %td Month Average BG
+            %td= if patient.monthly_avg_bg < 0 then 'N/A' else patient.monthly_avg_bg end
+    - else
+      %p No Patients
 .right
   = link_to 'New Patient', new_doctor_patient_path, class: 'auth-btn add-patient'
   .right-divider
@@ -27,4 +30,4 @@
       = link_to 'Month Avg', doctor_patients_path(@doctor.id, sort_by: 'monthly_average'), class: 'auth-btn'
 
 %br/
-
+.group
