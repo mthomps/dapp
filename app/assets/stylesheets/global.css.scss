@@ -74,23 +74,23 @@ td.divider {
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
-  color: #181817;
+  color: #aaa;
 }
 
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  color: #181817;
+  color: #aaa;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color: #181817;
+  color: #aaa;
 }
 :-ms-input-placeholder { /* Internet Explorer 10+ */
-  color: #181817;
+  color: #aaa;
 }
 
 .flash-zone {
   text-align: center;
   color: red;
-}}
+}
 
 .group:after {
   content: "";
